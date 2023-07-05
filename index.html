@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+<head>
+	
+	<link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+	
+	<style type="text/css">
+		/*重制*/
+		*{margin:0;padding:0;font-family:"Segoe UI",SegoeUI,"Microsoft YaHei",微软雅黑,"PingFang SC","Helvetica Neue",Helvetica,Arial,sans-serif;}	
+		li{list-style:none;}
+		a{text-decoration: none;}
+		imng{display: block;}
+		/*背景色*/
+		body{background-color:gray;}
+		
+		.AppleMusic{overflow: hidden;width:1220px; margin:50px auto;background-color:#262226;border-radius:8px;}
+
+		.NavBox{width: 220px;height: 720px;background-color: #30292c;color: white;font-size: 12px;float: left;border-right: solid 1px #040304;}
+		.NavBox .close,.NavBox .searchbox,.NavBox dl{width: 200px;margin: 0 auto;}
+		.NavBox .close{width: 200px; height: 30px;padding-top: 20px;margin-bottom: 12px;}
+		.close input{display: block; width: 56px;height: 15px; background-image: url(images/img30_01.png); border: none 0;margin-left: 10px;}
+		.close input:hover{background-image: url(images/img30_02.png);}
+		.NavBox .searchbox{height: 28px;background-color: #383638;border-radius:5px;overflow: hidden;border-bottom: solid 1px #565456;}
+		.searchbox img{float: left; margin: 5px 0 0 4px;}
+		.searchbox input{float: left;width: 170px; height:28px;border: none 0;font-size:13px; color:white; margin-left:2px;background:unset;}
+		.NavBox dt{display: block;height: 20px;line-height: 20px;color:#797779;font-weight: bold;margin-top: 12px;}
+		.NavBox dd{display: block;height: 28px;line-height: 28px;padding-left:38px;}
+		.NavBox .click{background-color:#454144;border-radius:5px;}
+		.NavBox a{color: white;/*text-decoration: none;*/display: block;width: height: 28px;}
+		.NavBox .icon02{background-image:url(images/img31_02.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon03{background-image:url(images/img31_03.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon04{background-image:url(images/img31_04.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon05{background-image:url(images/img31_05.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon06{background-image:url(images/img31_06.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon07{background-image:url(images/img31_07.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon08{background-image:url(images/img31_08.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon09{background-image:url(images/img31_09.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon10{background-image:url(images/img31_10.png);background-repeat: no-repeat;background-position:12px center;}
+		.NavBox .icon11{background-image:url(images/img31_11.png);background-repeat: no-repeat;background-position:right center;}
+		.NavBox .icon12{background-image:url(images/img31_12.png);background-repeat: no-repeat;background-position:12px center;}
+		
+		.Rightbox{width:999px;float: left;position: relative;/*background-color:darkblue;*/}
+		
+		.Playerbox{background-color:#1c1a1c;height: 50px; overflow: hidden;display: block;}
+		.Playerbox .play,.Playerbox .apple,.Playerbox .volume{float: left;display: block;}
+		.play{margin:4px 0 0 90px;}
+		.apple{overflow: hidden;margin: 4px 0 0 90px;}
+		.apple input{float: left;width: 42px; height: 42px; background-image: url(images/img32_02.png);border: none 0;}
+		.apple img{float: left;}
+		.apple input:hover{background-image: url(images/img32_11.png);}
+		.volume{overflow: hidden;margin:14px 0 0 60px;}
+		.volume .small,.volume img,.volume .big{float: left;}
+		.volume .small{width:12px;height: 22px; background-image: url(images/img32_04.png);border: none 0;}
+		.volume .big{width: 22px;height: 22px; background-image: url(images/img32_07.png);border: none 0;}
+		.small:hover{background-image: url(images/img32_06_1.png);}
+		.big:hover{background-image: url(images/img32_06_2.png);}
+		.musiclist{overflow: hidden;float: right;margin:11px 14px 0 0 ;}
+		.musiclist .airdrop,.musiclist .lyric,.musiclist .list{float: left;}
+		.musiclist .airdrop,.musiclist .list{width: 30px;height: 28px;border: none 0;}
+		.musiclist .airdrop{background-image: url(images/img32_08.png);}
+		.musiclist .list{background-image: url(images/img32_10.png);}
+		.musiclist .lyric{width: 31px;height: 28px;border: none 0;background-image: url(images/img32_09.png);margin: 0 2px;}
+		.musiclist .airdrop:hover{background-image: url(images/img32_12.png);}
+		.musiclist .lyric:hover{background-image: url(images/img32_13.png);}
+		
+		.ColumnBox{height:630px;color:white;padding-top:40px;overflow:scroll;}
+		
+		.Glancebox{width:920px;margin: 0 auto;padding-bottom:32px;}
+		.Glancebox h1{display: block; font-size:34px;line-height: 48px;}
+		.bglance{overflow: hidden;border-top: solid 1px #2e2b30;padding-top: 20px;}
+		.bglance .lbox{float: left;}
+		.bglance .rbox{float:right;}
+		.bglance h4{display: block; font-size:12px;line-height:16px;font-weight: normal;color: #999;}
+		.bglance h2{display: block; font-size:18px;line-height:22px;font-weight: normal;}
+		.bglance h3{display: block; font-size:14px;line-height:18px;font-weight: normal;color: #999;margin-bottom: 8px;}
+		/*溢出文本显示省略号*/
+		.bglance h2,.bglance h3{width: 450px;white-space: nowrap;overflow: hidden;text-overflow:ellipsis;}
+		
+		.Discobox{width: 920px;margin: 0 auto;padding-bottom:32px;}
+		.Discobox .discotext{overflow: hidden;height:46px;border-top: solid 1px #2e2b30;}
+		.discotext h1{float:left;font-size: 17px;font-weight: normal;line-height: 46px;}
+		.discotext a{float:right;font-size: 15px;line-height: 46px; color: #ff4b58;}
+		.disco{overflow: hidden;}
+		.disco div{float: left;width: 215px;margin-left: 20px;}
+		.disco .nomargin{margin: 0;}
+		.disco h2{font-size: 12px;font-weight: normal;line-height: 16px;margin-top:4px;max-height: 32px;overflow:hidden;}
+		.disco h3{font-size: 12px;font-weight: normal;line-height: 16px;color: #999;}
+		
+		.Updatemusic{width:920px;margin: 0 auto;padding-bottom:32px;}
+		.Updatemusic h1{display: block;font-size: 17px;font-weight: normal;line-height:46px;border-top: solid 1px #2e2b30;}
+		.Updatebox{overflow: hidden;}
+		.Updatebox div{float: left;width: 293px;}
+		.Updatebox h2{display: block;font-size: 16px;font-weight: normal;line-height: 30px;}
+		.Updatebox p{display: block;font-size: 12px;color: #999; line-height: 15px;height: 30px;overflow:hidden;}
+		.Updatebox h2:hover{text-decoration: underline;}
+		.Updatebox p:hover{text-decoration: underline;}
+		
+		.Newmusic{width:920px;margin: 0 auto;padding-bottom:32px;/*background-color: red;*/}
+		.Newmusic .newtextbox{height:46px;overflow:hidden;border-top: solid 1px #2e2b30;}
+		.Newmusic h1{display: block;font-size: 17px;font-weight: normal;line-height:46px;float: left;}
+		.Newmusic a{display: block;font-size: 15px;line-height:46px;float:right;color: #ff4b58;}
+		.musiclistbig{overflow: hidden;}
+		.musiclistbig .listL{float: left;}
+		.musiclistbig .listLR{float: right;}
+		.music{width: 450px; height:47px;padding-top: 7px;border-top: solid 1px #2e2b30;overflow: hidden;}
+		.music div{width: 40px; height:40px;float: left;}
+		.music .cover1{background-image: url(images/img35_01.png);}
+		.music .cover2{background-image: url(images/img35_02.png);}
+		.music .cover3{background-image: url(images/img35_03.png);}
+		.music .cover4{background-image: url(images/img35_04.png);}
+		.music .cover5{background-image: url(images/img35_05.png);}
+		.music .cover6{background-image: url(images/img35_06.png);}
+		.music .cover7{background-image: url(images/img35_07.png);}
+		.music .cover8{background-image: url(images/img35_08.png);}
+		.music dl{height:32px;float: left;margin-left: 15px;background-image: url(images/img35_09.png);background-repeat: no-repeat;background-position: right center;padding-top:4px;}
+		.music dt,.music dd{display: block; width: 370px;font-size:12px;line-height: 16px;}
+		.music dd{color:#999;}
+		.music dd:hover{text-decoration: underline;}
+		.music div:hover{content: url(images/img35_10.png);}
+		
+		.Newalbum{width:920px;margin: 0 auto;padding-bottom:12px;/*background-color:black;*/}
+		.Newalbum .textbox{height:46px;overflow:hidden;border-top: solid 1px #2e2b30;}
+		.Newalbum .textL{display: block;font-size: 17px;font-weight: normal;line-height:46px;float: left;}
+		.Newalbum .textR{display: block;font-size: 15px;line-height:46px;float:right;color: #ff4b58;}
+		.Newalbum .productShow{font-size: 12px;overflow: hidden;}
+		.Newalbum .product{display: block;width: 215px;float: left;margin-left: 20px;margin-bottom: 24px;}	
+		.Newalbum .nomargin{margin: 0;}
+		.product dt{display: block;margin-bottom:4px;}
+		.product dd{display: block;height: 16px; }
+		.product dd:hover{text-decoration: underline;}
+		.product .colordd{color:#999;}
+		
+		.Artistbox{width: 920px;margin: 0 auto;padding-bottom:32px;}
+		.artisttext{overflow: hidden;border-top: solid 1px #2e2b30;}
+		.artisttext h1{display: block;float: left;font-size: 17px;font-weight: normal;line-height:46px;}
+		.artisttext a{display: block;float:right;font-size: 15px;line-height:46px;color: #ff4b58;}
+		.artist{overflow: hidden;}
+		.artist div{width: 293px;float: left;margin-left: 20px;}
+		.artist .nomargin{margin: 0;}
+		.artist h3{font-size: 12px;font-weight: normal;line-height: 26px;}
+		.artist h3:hover{text-decoration: underline;}
+		
+		.Morebox{width:920px;margin: 0 auto;padding-bottom:90px;/*background-color:brown;*/}
+		.Morebox h1{display: block;font-size: 17px;font-weight: normal;line-height:46px;border-top: solid 1px #2e2b30;}
+		.morelist{overflow: hidden;}
+		.morelist a{display: block;width:278px;height:58px;background-color:#302c31;float:left;font-size: 12px;color: #ff4b58;line-height: 58px;padding-left: 15px;margin-bottom:22px;background-image: url(images/img34.png);background-repeat: no-repeat; background-position:265px center;border-radius:12px;}
+		.marginLR{margin: 0 20px;}
+		
+		.Readbox{width: 999px; height: 63px;background-color:#fa2e49;overflow: hidden;border-radius:0 0 8px 0;}
+		.Readbox{position:absolute;left:0;top:657px;}
+		.Readbox .musiclogo,.Readbox dl{float: left;}
+		.Readbox .musiclogo{display: block;width:105px;height: 39px;margin: 12px 0 0 28px; border-right: solid 1px rgba(255,255,255,0.3);}
+		.Readbox dl{display: block; width: 500px;color: white;margin: 12px 0 0 20px; }
+		.Readbox dt{display: block;height: 18px; font-size: 14px;line-height: 18px;}
+		.Readbox dd{display: block;height: 14px; font-size:11px;opacity: 0.7; line-height: 14px;padding-top: 7px;}
+		.Readbox .button{float:right;width: 125px;height:31px;background-color: white;font-size:13px;color: black;font-weight: bold;line-height: 31px;text-align: center; margin:16px 30px 0 0; border-radius:4px;}
+		
+	</style>
+	
+<meta charset="UTF-8">
+<title>Apple&nbsp;Music1.1.6.37</title>
+
+</head>
+
+<body>
+	<div class="AppleMusic">
+		<div class="NavBox">
+			<div class="close">
+				<input type="button">
+			</div>
+			<div class="searchbox">
+				<img src="images/img31_01.png" alt="" />
+				<input type="search" placeholder="搜索"  >
+				
+			</div>
+			<dl>
+				<dt>Apple&nbsp;Music</dt>
+				<dd class="icon02"><a href="#">现在就听</a></dd>
+				<dd class="icon03 click"><a href="#">浏览</a></dd>
+				<dd class="icon04"><a href="#">广播</a></dd>
+
+				<dt class="zl">资料库</dt>
+				<dd class="icon05"><a href="#">最近添加</a></dd>
+				<dd class="icon06"><a href="#">艺人</a></dd>
+				<dd class="icon07"><a href="#">专辑</a></dd>
+				<dd class="icon08"><a href="#">歌曲</a></dd>
+
+				<dt>商店</dt>
+				<dd class="icon09"><a href="#">iTunes&nbsp;Store</a></dd>
+
+				<dt>设备</dt>
+				<dd class="icon10"><a class="icon11" href="#">iPhone</a></dd>
+
+				<dt>播放列表</dt>
+				<dd class="icon12"><a href="#">所有播放列表</a></dd>
+			</dl>
+		</div>
+
+		<div class="Rightbox">	
+			
+			<ul class="Playerbox">
+				<li class="play">
+					<img src="images/img32_01.png" alt="">
+				</li>
+				<li class="apple">
+					<input type="button" value="">
+					<img src="images/img32_03.png" alt="">
+				</li>
+				<li class="volume">
+					<input class="small" type="button" value="">
+					<img src="images/img32_05.png" alt="">
+					<input class="big" type="button" value="">
+				</li>
+				<li class="musiclist">
+					<input  class="airdrop" type="button" value="">
+					<input  class="lyric" type="button" value="">
+					<input  class="list" type="button" value="">
+				</li>
+			</ul>
+			<div class="ColumnBox">
+				
+				<div class="Glancebox">
+					<h1>浏览</h1>
+					<div class="bglance">
+						<div class="lbox">
+							<h4>推荐歌单</h4>
+							<h2>惬意古典&nbsp;|&nbsp;无论是在漫长一天的结束时，还是只是需要一点宁静时，歌单里从经典曲目到当代跨界风格的古典乐精选，能够帮你变得轻松。</h2>
+							<h3>App&nbsp;leMusic&nbsp;古典音乐</h3>
+							<img src="images/img36_02.png" alt="" />
+						</div>
+						<div class="rbox">
+							<h4>现可通过空间音频体验</h4>
+							<h2>rozen（Original&nbsp;Motion&nbsp;Picture&nbsp;soundtrack）</h2>
+							<h3>Kristen&nbsp;Anderson-Lopez&nbsp;&&nbsp;Robert&nbsp;Lopez,Idina&nbsp;Menzel,克里斯丁.贝尔、Jonathan&nbsp;Groff和Josh&nbsp;Gad</h3>
+							<img src="images/img36_01.png" alt="" />
+						</div>
+					</div>
+				</div>
+				<div class="Discobox">
+					<div class="discotext">
+						<h1>别再问我为什么是迪斯科</h1>
+						<a href="#">显示全部</a>
+					</div>
+					<div class="disco">
+						<div class="nomargin">
+							<img src="images/img39_01.png" alt="" />
+							<h2>Disco代表作品</h2>
+							<h3>Apple&nbsp;Music舞曲</h3>
+						</div>
+						<div>
+							<img src="images/img39_02.png" alt="" />
+							<h2>深度聆听Disco</h2>
+							<h3>Apple&nbsp;Music灵魂乐/Funk</h3>
+						</div>
+						<div>
+							<img src="images/img39_03.png" alt="" />
+							<h2>Saturday&nbsp;Night&nbsp;Fever(The&nbsp;Original&nbsp;Movie&nbsp;Soundtrack)[DeluxeEdition]</h2>
+							<h3>Bee&nbsp;Gees</h3>
+						</div>
+						<div>
+							<img src="images/img39_04.png" alt="" />
+							<h2>C'est&nbsp;Chic(Remastered)</h2>
+							<h3>Chic</h3>
+						</div>
+					</div>
+				</div>
+				<div class="Updatemusic">
+					<h1>近期更新</h1>
+					<div class="Updatebox">
+						<div>
+							<img src="images/img37_01.png" alt="" />
+							<h2>中嘻合璧</h2>
+							<p>话语嘻哈武林争霸，拆解音乐招数背后的当代东方文化。</p>
+						</div>
+						<div class="marginLR">
+							<img src="images/img37_02.png" alt="" />
+							<h2>潜力新歌：国语流行</h2>
+							<p>国语流行脉络上的潜力新作，话语乐坛的蓄力之声。</p>
+						</div>
+						<div>
+							<img src="images/img37_03.png" alt="" />
+							<h2>A-List：国际流行</h2>
+							<p>收录最新最潮的热门金曲，国际乐坛潮流趋势一单搞定。</p>
+						</div>
+					</div>
+				
+				
+				</div>
+				<div class="Newmusic">
+					<div class="newtextbox">
+						<h1>新歌精选</h1>
+						<a href="#">显示全部</a>
+					</div>
+					<div class="musiclistbig">
+						<div class="listL">
+							<div class="music">
+								<div class="cover1"></div>
+								<dl>
+									<dt>The&nbsp;Day&nbsp;of&nbsp;Unknown（电视剧《三体》主题曲）</dt>
+									<dd>陈雪燃</dd>
+								</dl>
+							</div>
+							<div class="music">
+								<div class="cover2"></div>
+								<dl>
+									<dt>GET&nbsp;IT（Full&nbsp;Version）</dt>
+									<dd>A.Roll</dd>
+								</dl>
+							</div>
+							<div class="music">
+								<div class="cover3"></div>
+								<dl>
+									<dt>浪漫出逃</dt>
+									<dd>XMASwu、DJ&nbsp;SHEK和Kanon</dd>
+								</dl>
+							</div>
+							<div class="music">
+								<div class="cover4"></div>
+								<dl>
+									<dt>BACKTOYOU</dt>
+									<dd>Rabi</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="listLR">
+							<div class="music">
+								<div class="cover5"></div>
+								<dl>
+									<dt>对话</dt>
+									<dd>东树Sequoia</dd>
+								</dl>
+							</div>
+							<div class="music">
+								<div class="cover6"></div>
+								<dl>
+									<dt>Face&nbsp;to&nbsp;face</dt>
+									<dd>SteeVen</dd>
+								</dl>
+							</div>
+							<div class="music">
+								<div class="cover7"></div>
+								<dl>
+									<dt>聪明豆</dt>
+									<dd>ANSONBEAN</dd>
+								</dl>
+							</div>
+							<div class="music">
+								<div class="cover8"></div>
+								<dl>
+									<dt>Stupid&nbsp;Love</dt>
+									<dd>廖柏雅</dd>
+								</dl>
+							</div>
+					</div>
+				</div>	
+				</div>
+				<div class="Newalbum">
+					<div class="textbox">
+					<div class="textL">最新专辑</div>
+					<div class="textR">显示全部</div>
+				</div>
+					<div class="productShow">
+							<dl class="product nomargin">
+								<dt><img src="images/img29_01.png" alt="封面" /></dt>
+								<dd>电视剧《三体》原声专辑,&nbsp;Vol.&nbsp;1</dd>
+								<dd class="colordd">Xueran&nbsp;Chen&nbsp;and&nbsp;Alexandra&nbsp;Lilly</dd>
+							</dl>
+							<dl class="product">
+								<dt><img src="images/img29_02.png" alt="封面" /></dt>
+								<dd>Quest&nbsp;For&nbsp;Fire</dd>
+								<dd class="colordd">Skrillex</dd>
+							</dl>
+							<dl class="product">
+								<dt><img src="images/img29_03.png" alt="封面" /></dt>
+								<dd>《中国奇谭》影视原声带</dd>
+								<dd class="colordd">Various&nbsp;Artists</dd>
+							</dl>
+							<dl class="product">
+								<dt><img src="images/img29_04.png" alt="封面" /></dt>
+								<dd>磁带-EP</dd>
+								<dd class="colordd">Foreseer</dd>
+							</dl>
+							<dl class="product nomargin">
+								<dt><img src="images/img29_05.png" alt="封面" /></dt>
+								<dd>Desire,I&nbsp;want&nbsp;to&nbsp;Turn&nbsp;Into&nbsp;You</dd>
+								<dd class="colordd">Caroline&nbsp;Polachek</dd>
+							</dl>
+							<dl class="product">
+								<dt><img src="images/img29_06.png" alt="封面" /></dt>
+								<dd>文明病</dd>
+								<dd class="colordd">東樹&nbsp;Sequoia</dd>
+							</dl>
+							<dl class="product">
+								<dt><img src="images/img29_07.png" alt="封面" /></dt>
+								<dd>X自選集</dd>
+								<dd class="colordd">Elvis&nbsp;Wang</dd>
+							</dl>
+							<dl class="product">
+								<dt><img src="images/img29_08.png" alt="封面" /></dt>
+								<dd>Day&nbsp;Dreamer-EP</dd>
+								<dd class="colordd">Louis&nbsp;Lu</dd>
+							</dl>
+					</div>	
+				</div>
+				<div class="Artistbox">
+					<div class="artisttext">
+						<h1>艺人分享</h1>
+						<a href="#">显示全部</a>
+					</div>
+					<div class="artist">
+						<div class="artist nomargin">
+							<img src="images/img38_01.png" alt="" />
+							<h3>NERIAH on "FALLING 4 SOMEBODY"</h3>
+						</div>
+						<div>
+							<img src="images/img38_02.png" alt="" />
+							<h3>NewJeans on"OMG".</h3>
+						</div>
+						<div>
+							<img src="images/img38_03.png" alt="" />
+							<h3>Trippie Redd on"MANSION MUSIK"</h3>
+						</div>
+					</div>
+				</div>
+				<div class="Morebox">
+					<h1>探索更多内容</h1>
+					<div class="morelist">
+						<a href="#">按类别浏览</a>
+						<a class="marginLR" href="#">减压</a>
+						<a href="#">儿童</a>
+						<a href="#">排行榜</a>
+						<a class="marginLR" href="#">怀旧</a>
+						<a href="#">音乐视频</a>
+					</div>				
+				</div>
+				<div class="Readbox">
+					<div class="musiclogo">
+						<img src="images/img33.png" alt="">
+					</div>
+					<dl>
+						<dt>上千万首歌曲。全无广告干扰。</dt>
+						<dd>此外，你还能在所有设备上欣赏你的整个音乐资料库。方案将以每月&nbsp;&yen;10.00&nbsp;的价格自动续期。</dd>
+					</dl>
+					<div class="button">免费试用</div>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+	
+</body>
+</html>
